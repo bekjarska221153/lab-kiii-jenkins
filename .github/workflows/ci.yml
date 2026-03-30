@@ -1,1 +1,21 @@
+name: CI Workflow
 
+# 1. Trigger: на секој push
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # 2a. Checkout кодот (community action)
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2b. Shell command
+      - name: List files
+        run: ls -l
